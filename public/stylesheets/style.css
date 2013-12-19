@@ -6,3 +6,101 @@ body {
 a {
   color: #00B7FF;
 }
+
+.icon {
+  position: relative;
+  border-radius: 50%;
+  background-color: #1c1c1c;
+}
+.icon svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
+.icon svg path {
+  stroke: #fff;
+}
+.icon .text {
+  font-weight: bold;
+  color: #fff;
+}
+.icon--small {
+  padding: 0;
+  width: 45px;
+  height: 45px;
+  margin: 0 auto 10px auto;
+}
+.icon--small svg {
+  max-width: 25px;
+  max-height: 25px;
+}
+.icon--small .text {
+  font-size: 37px;
+  line-height: 44px;
+}
+.icon--large {
+  padding: 30px;
+  width: 230px;
+  height: 230px;
+  margin: 0 auto 20px auto;
+}
+.icon--large svg {
+  max-width: 210px;
+  max-height: 210px;
+}
+.icon--large svg path {
+  stroke: #fff;
+}
+.icon--large .text {
+  font-size: 210px;
+  line-height: 220px;
+}
+.icon--success {
+  background-color: #34a802;
+}
+.icon--success.icon--inverse {
+  background-color: #fff;
+}
+.icon--success.icon--inverse svg path {
+  stroke: #34a802;
+}
+.icon--success.icon--inverse .text {
+  color: #34a802;
+}
+.icon--danger {
+  background-color: #d92e00;
+}
+.icon--danger.icon--inverse {
+  background-color: #fff;
+}
+.icon--danger.icon--inverse svg path {
+  stroke: #d92e00;
+}
+.icon--danger.icon--inverse .text {
+  color: #d92e00;
+}
+.icon--warning {
+  background-color: #d97600;
+}
+.icon--warning.icon--inverse {
+  background-color: #fff;
+}
+.icon--warning.icon--inverse svg path {
+  stroke: #d97600;
+}
+.icon--warning.icon--inverse .text {
+  color: #d97600;
+}
+.icon--status {
+  background-color: blue;
+}
+.icon--status.icon--inverse {
+  background-color: #fff;
+}
+.icon--status.icon--inverse svg path {
+  stroke: blue;
+}
+.icon--status.icon--inverse .text {
+  color: blue;
+}

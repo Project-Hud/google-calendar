@@ -6,6 +6,7 @@
 var express = require('express')
   , http = require('http')
   , path = require('path')
+  , googleJwt = require('./lib/google-jwt')
   , app = express()
 
 // all environments
@@ -25,8 +26,21 @@ if ('development' === app.get('env')) {
   app.use(express.errorHandler())
 }
 
+googleJwt(function (error, calendar) {
+  if (error) return console.error(error)
+
+
+})
+
+
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Express' })
+  res.render('index', { title: 'Calendar' })
+})
+
+app.get('/calendar-status', function (req, res) {
+  googleJwt(function (error, calendar) {
+    res.json(calendar)
+  })
 })
 
 http.createServer(app).listen(app.get('port'), function(){

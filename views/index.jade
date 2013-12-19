@@ -1,7 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .module.module--status.module--service-status
+    .module__body
+      .icon.icon--success.icon--large.js-success
+            svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='445px', height='397px', viewbox='0 0 445 397', style='enable-background: new 0 0 445 397;', xml:space='preserve')
+              path(style='fill: none; stroke-width: 80; stroke-miterlimit: 10;', d='M27.495,222.246c0,0,57,50,97.098,103c0,0,144.41-183.505,292.902-293')
+      .icon.icon--danger.icon--large.js-danger
+        svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='445px', height='397px', viewbox='0 0 445 397', style='enable-background: new 0 0 445 397;', xml:space='preserve')
+          g
+            path(style='fill: none; stroke-width: 80; stroke-miterlimit: 10;', d='M73.669,347.98c0,0,144.41-183.505,292.902-293')
+            path(style='fill: none; stroke-width: 80; stroke-miterlimit: 10;', d='M366.249,349.129c0,0-143.386-184.308-291.266-294.629')
+      p.js-free Boardroom is free
+      p.js-busy
+        | Boardroom in use, free in 
+        span.js-free-mins 0
+        |  mins
+
 
   script(src='/javascripts/index.js')

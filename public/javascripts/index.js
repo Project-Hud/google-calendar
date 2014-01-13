@@ -11,22 +11,24 @@
   document.getElementsByClassName('js-busy')[0].style.display = 'none'
   document.getElementsByClassName('js-free')[0].style.display = 'none'
 
-  function setFree() {
+  function setFree(startDate) {
     $iconSuccess[0].style.display = 'block'
     $textSuccess[0].style.display = 'block'
 
     $iconDanger[0].style.display = 'none'
     $textDanger[0].style.display = 'none'
+
+    $textFreeMins[0].innerHTML = moment(startDate).fromNow(true)
   }
 
-  function setBusy(minutes) {
+  function setBusy(endDate) {
     $iconDanger[0].style.display = 'block'
     $textDanger[0].style.display = 'block'
 
     $iconSuccess[0].style.display = 'none'
     $textSuccess[0].style.display = 'none'
 
-    $textFreeMins[0].innerHTML = minutes
+    $textFreeMins[1].innerHTML = moment(endDate).fromNow()
   }
 
   var request = new XMLHttpRequest()
@@ -42,14 +44,11 @@
       var startDate = new Date(res.busy[0].start)
         , now = new Date()
 
-      if (startDate > now) return setFree()
+      if (startDate > now) return setFree(startDate)
 
       var endDate = new Date(res.busy[0].end)
-        , difference = endDate - now
-        , seconds = Math.floor((difference) / 1000)
-        , minutes = Math.floor(seconds / 60)
 
-      setBusy(minutes)
+      setBusy(endDate)
 
     }
   }

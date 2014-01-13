@@ -18,7 +18,11 @@
     $iconDanger[0].style.display = 'none'
     $textDanger[0].style.display = 'none'
 
-    $textFreeMins[0].innerHTML = moment(startDate).fromNow(true)
+    if (startDate) {
+      $textFreeMins[0].innerHTML = moment(startDate).fromNow(true)
+    } else {
+      $textFreeMins[0].innerHTML = 'a while'
+    }
   }
 
   function setBusy(endDate) {

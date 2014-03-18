@@ -1,48 +1,13 @@
-
-/**
- * Module dependencies.
- */
-
-var express = require('express')
-  , http = require('http')
-  , path = require('path')
+var Widget = new require('hud-widget')
+  , widget = new Widget()
   , googleJwt = require('./lib/google-jwt')
-  , app = express()
 
-// all environments
-app.set('port', process.env.PORT || 3000)
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'jade')
-app.use(express.favicon())
-app.use(express.logger('dev'))
-app.use(express.json())
-app.use(express.urlencoded())
-app.use(express.methodOverride())
-app.use(app.router)
-app.use(express.static(path.join(__dirname, 'public')))
-
-// development only
-if ('development' === app.get('env')) {
-  app.use(express.errorHandler())
-}
-
-googleJwt(function (error, calendar) {
-  if (error) return console.error(error)
-
-
-})
-
-
-app.get('/', function (req, res) {
+widget.get('/', function (req, res) {
   res.render('index', { title: 'Calendar' })
 })
 
-app.get('/calendar-status', function (req, res) {
+widget.get('/calendar-status', function (req, res) {
   googleJwt(function (error, calendar) {
     res.json(calendar)
   })
-})
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'))
 })

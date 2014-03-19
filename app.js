@@ -6,7 +6,7 @@ widget.get('/', function (req, res) {
   res.render('index', { title: 'Calendar' })
 })
 
-widget.get('/calendar-status', function (req, res) {
+widget.get('/calendar-status', widget.cache(30000), function (req, res) {
   googleJwt(function (error, calendar) {
     res.json(calendar)
   })

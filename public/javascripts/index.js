@@ -1,38 +1,27 @@
 (function () {
-  var $iconSuccess = document.getElementsByClassName('js-success')
-    , $iconDanger = document.getElementsByClassName('js-danger')
-    , $textSuccess = document.getElementsByClassName('js-free')
-    , $textDanger = document.getElementsByClassName('js-busy')
-    , $textFreeMins = document.getElementsByClassName('js-free-mins')
-
-  $iconSuccess[0].style.display = 'none'
-  $iconDanger[0].style.display = 'none'
-
-  document.getElementsByClassName('js-busy')[0].style.display = 'none'
-  document.getElementsByClassName('js-free')[0].style.display = 'none'
+  var $container = $('.js-container')
+    , $free = $('.js-free')
+    , $busy = $('.js-busy')
+    , $textFreeMins = $('.js-free-mins')
 
   function setFree(startDate) {
-    $iconSuccess[0].style.display = 'block'
-    $textSuccess[0].style.display = 'block'
-
-    $iconDanger[0].style.display = 'none'
-    $textDanger[0].style.display = 'none'
+    $container.removeClass('busy').addClass('free')
+    $free.show()
+    $busy.hide()
 
     if (startDate) {
-      $textFreeMins[0].innerHTML = moment(startDate).fromNow(true)
+      $textFreeMins.text('For the next '+ moment(startDate).fromNow(true))
     } else {
-      $textFreeMins[0].innerHTML = 'a while'
+      $textFreeMins.text('For a while')
     }
   }
 
   function setBusy(endDate) {
-    $iconDanger[0].style.display = 'block'
-    $textDanger[0].style.display = 'block'
+    $container.removeClass('free').addClass('busy')
+    $free.hide()
+    $busy.show()
 
-    $iconSuccess[0].style.display = 'none'
-    $textSuccess[0].style.display = 'none'
-
-    $textFreeMins[1].innerHTML = moment(endDate).fromNow()
+    $textFreeMins.text('Available in roughly '+ moment(endDate).fromNow())
   }
 
   var request = new XMLHttpRequest()

@@ -1,22 +1,13 @@
 extends layout
 
 block content
-  .module.module--status.module--service-status
-    .module__body
-      .icon.icon--success.icon--large.js-success
-            svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='445px', height='397px', viewbox='0 0 445 397', style='enable-background: new 0 0 445 397;', xml:space='preserve')
-              path(style='fill: none; stroke-width: 80; stroke-miterlimit: 10;', d='M27.495,222.246c0,0,57,50,97.098,103c0,0,144.41-183.505,292.902-293')
-      .icon.icon--danger.icon--large.js-danger
-        svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='445px', height='397px', viewbox='0 0 445 397', style='enable-background: new 0 0 445 397;', xml:space='preserve')
-          g
-            path(style='fill: none; stroke-width: 80; stroke-miterlimit: 10;', d='M73.669,347.98c0,0,144.41-183.505,292.902-293')
-            path(style='fill: none; stroke-width: 80; stroke-miterlimit: 10;', d='M366.249,349.129c0,0-143.386-184.308-291.266-294.629')
-      p.js-free 
-        | Boardroom is free, for 
-        span.js-free-mins 0
-      p.js-busy
-        | Boardroom in use, free 
-        span.js-free-mins 0
+  .widget.background
+    .boardroom-status.js-container
+      h2.boardroom-status__title Boardroom is
+      h3.boardroom-status__subtitle.js-free available
+      h3.boardroom-status__subtitle.js-busy in use
+      span.boardroom-status__status.js-free-mins
 
+  script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
   script(src=versionPath('/javascripts/moment.min.js'))
   script(src=versionPath('/javascripts/index.js'))

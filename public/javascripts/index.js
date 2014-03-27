@@ -21,7 +21,7 @@
     $free.hide()
     $busy.show()
 
-    $textFreeMins.text('Available in roughly '+ moment(endDate).fromNow())
+    $textFreeMins.text('Available '+ moment(endDate).fromNow())
   }
 
   var request = new XMLHttpRequest()

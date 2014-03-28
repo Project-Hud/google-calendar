@@ -15,3 +15,4 @@ npm-debug.log
 node_modules
 
 static-file-map.json
+public/stylesheets/**/*.css
